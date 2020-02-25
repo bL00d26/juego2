@@ -48,6 +48,19 @@ class _MyAppState extends State<MyApp> {
                     _gragZonePlural()
                   ],
                 ),
+                Expanded(child: Container()),
+                Row(
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.access_time),
+                      onPressed: (){
+                        setState(() {
+                          reiniciar();
+                        });
+                      },
+                    )
+                  ],
+                )
               ],
             )
             
@@ -188,5 +201,18 @@ class _MyAppState extends State<MyApp> {
       },
      
     );
+  }
+
+  void reiniciar() {
+    estados ={
+    "vestido":false,
+    "aceite":false,
+    "ciudad":false,
+    "tijera":false, 
+    "rábanos":false, 
+    "relojes":false, 
+    "amigos":false, 
+    "dedos":false,    
+  };
   }
 }
