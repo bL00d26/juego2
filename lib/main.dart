@@ -10,15 +10,19 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   List<String> singulares = ['vestido','aceite','ciudad','tijera'];
   List<String> plurales = ['dedos','rábanos','relojes','amigos'];
-  Map<String,bool> estadosSingulares;
+  Map<String,bool> estados;
   @override
   void initState() { 
     super.initState();
-    estadosSingulares ={
+    estados ={
     "vestido":false,
     "aceite":false,
     "ciudad":false,
-    "tijera":false,    
+    "tijera":false, 
+    "rábanos":false, 
+    "relojes":false, 
+    "amigos":false, 
+    "dedos":false,    
   };
   }
   @override
@@ -116,14 +120,14 @@ class _MyAppState extends State<MyApp> {
          color: Colors.lightBlueAccent
        )
      ),
-     child: Container(
+     child: estados[palabra]==false ? Container(
        padding: EdgeInsets.all(10.0),
        child: Text(palabra,style: TextStyle(fontSize: 15,fontWeight: FontWeight.normal,fontStyle: FontStyle.normal, color: Colors.black),),
        decoration:BoxDecoration(
          borderRadius: BorderRadius.circular(10.0),
          color: Colors.lightBlueAccent
        )
-     ),
+     ):Container(),
      childWhenDragging:Container(),
      onDragCompleted: () => Container(),
 
@@ -149,7 +153,8 @@ class _MyAppState extends State<MyApp> {
       onWillAccept: (data) => singulares.contains(data),
       onAccept: (data){
         setState(() {
-          print("aceptado");
+          
+          estados[data]=true;
           
         });
       },
@@ -176,7 +181,9 @@ class _MyAppState extends State<MyApp> {
       onWillAccept: (data) => plurales.contains(data),
       onAccept: (data){
         setState(() {
-          print("aceptado");
+          
+          estados[data]=true;
+          
         });
       },
      
