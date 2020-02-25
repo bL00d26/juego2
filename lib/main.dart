@@ -92,7 +92,8 @@ class _MyAppState extends State<MyApp> {
                             });
                           },
                           color: Colors.limeAccent,
-                        )
+                        ),
+                        //TODO Agregar los siguientes botones
                       ],
                     ),
                   )
